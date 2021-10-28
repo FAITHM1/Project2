@@ -1,0 +1,46 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  <form action="/entry" method="post">
+    <fieldset>
+      <legend>Add a new entry</legend>
+      <label>
+        Name: <input type="text" name="name" placeholder="enter item name" />
+      </label>
+      <br />
+      <label>
+        Link:
+        <input
+          type="text"
+          name="url"
+          placeholder="link to the item (optional)"
+        />
+      </label>
+      <br />
+      <label>
+        Image address:
+        <input
+          type="text"
+          name="img"
+          placeholder="enter an image address to display image"
+        />
+      </label>
+      <br />
+      <label>
+        Price: <input type="text" name="price" placeholder="enter Price" />
+      </label>
+      <br />
+      <label>
+        Item type:
+        <input type="text" name="type" placeholder="top, bottom etc.." />
+      </label>
+      <br />
+      <label>
+        Description:
+        <input type="text" name="description" placeholder=".." />
+      </label>
+    </fieldset>
+    <input type="submit" value="Add a new item" />
+  </form>
+</div>
+
+{% endblock %}

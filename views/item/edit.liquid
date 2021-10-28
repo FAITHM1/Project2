@@ -1,0 +1,38 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  <form action="/entry/{{ item._id }}?_method=PUT" method="post">
+    <fieldset>
+      <legend>{{ item.name }}</legend>
+      <label>
+        Name: <input type="text" name="name" value="{{ item.name }}" />
+      </label>
+      <br />
+      <label>
+        Link:
+        <input type="text" name="url" value="{{ item.url }}" />
+      </label>
+      <br />
+      <label>
+        Image address:
+        <input type="text" name="img" value="{{ item.img }}" />
+      </label>
+      <br />
+      <label>
+        Price: <input type="text" name="price" value="{{ item.price }}" />
+      </label>
+      <br />
+      <label>
+        Item type:
+        <input type="text" name="type" value="{{ item.type }}" />
+      </label>
+      <br />
+      <label>
+        Description:
+        <input type="text" name="description" value="{{ item.description }}" />
+      </label>
+    </fieldset>
+    <input type="submit" value="edit item" />
+  </form>
+</div>
+
+{% endblock %}

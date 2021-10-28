@@ -1,0 +1,20 @@
+{% layout "layout.liquid"%} {% block content %}
+<article>
+  <a href="/entry"><button>Home</button></a>
+  <h2>{{ item.name }}</h2>
+  <img src="{{ item.img }}" alt="{{ item.name }}" />
+  <h3>${{ item.price }}</h3>
+  <h4>Item type:{{ item.type | upcase }}</h4>
+  <h5>
+    {{ item.description }}
+  </h5>
+
+  <p>Posted at: {{ item.createdAt | date: "%a, %b %d, %y" }}</p>
+  <a href="/entry/{{ item._id }}/edit"><button>edit item</button></a>
+
+  <form action="/entry/{{ item._id }}?_method=DELETE" method="post">
+    <input type="submit" value="DELETE" />
+  </form>
+</article>
+
+{% endblock %}
