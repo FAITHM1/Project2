@@ -1,0 +1,7 @@
+{% layout "layout.liquid" %} {% block content %}
+
+<form action="/entry/{{ item._id }}?_method=PUT" method="post">
+  Jornal entry: <input type="text-area" name:"jornal" />
+  <input type="submit" />
+</form>
+{% endblock %}

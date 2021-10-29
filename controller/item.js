@@ -114,6 +114,28 @@ router.delete("/:id", (req, res) => {
       res.json({ error });
     });
 });
+//jornal route
+router.get("/:id/jornal", (req, res) => {
+  const id = req.params.id;
+  Item.findById(id)
+    .then((item) => {
+      res.render("item/entry.liquid", { item });
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
+router.put("/:id", (req, res) => {
+  const id = req.params.id;
+
+  Item.findByIdAndUpdate(id, { $push: { jornal: req.body } }, { new: true })
+    .then((item) => {
+      res.redirect("/:id");
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
 //index route
 router.get("/:id", (req, res) => {
   const id = req.params.id;
