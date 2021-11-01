@@ -81,6 +81,7 @@ body {
 
 article {
   background-color: white;
+  height: 100vh;
 }
 article h2,
 article h3,
@@ -93,11 +94,12 @@ article p {
 article img {
   display: block;
   margin: 0 auto;
+  width: 50%;
 }
 .show-button {
   color: var(--background);
   background-color: var(--text-color);
-  width: 120px;
+
   margin: 10px;
 }
 input[type="submit"],
@@ -109,9 +111,91 @@ input[value="DELETE"] {
 .btn {
   display: flex;
   justify-content: space-between;
+  position: relative;
+  bottom: 20px;
 }
 
 fieldset {
   margin: 10px;
   color: var(--text-color);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  background-color: rgb(168, 166, 170);
+  color: white;
+  position: relative;
+  bottom: 0;
+}
+footer h3 {
+  color: white;
+}
+footer a {
+  color: var(--dark-text);
+}
+
+footer .nav {
+  width: 30%;
+}
+li {
+  list-style: none;
+  /* border-bottom: 1px solid rgba(5, 16, 19, 0.13); */
+  font-weight: 600;
+}
+.fas {
+  width: 10%;
+  color: var(--text-color);
+  margin-top: 10px;
+  position: absolute;
+  right: 0;
+}
+.fas:hover {
+  color: var(--dark-background);
+  cursor: pointer;
+}
+.navigation {
+  background-color: rgb(253, 204, 185);
+  width: 50%;
+  text-align: center;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.menu {
+  display: none;
+}
+.add a:hover {
+  color: var(--dark-text);
+}
+@media (min-width: 600px) {
+  article img {
+    width: 40%;
+  }
+}
+@media (min-width: 700px) {
+  article img {
+    width: 25%;
+  }
+}
+@media (min-width: 1000px) {
+  article img {
+    width: 270px;
+  }
+}
+@media (min-width: 320px) and (max-width: 420px) {
+  .text p {
+    font-size: 10px;
+    margin: 2px;
+  }
+  .text a {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin: 0;
+    /* padding: 2px; */
+    font-weight: 300;
+    font-size: 10px;
+  }
 }

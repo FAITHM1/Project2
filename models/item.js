@@ -13,7 +13,8 @@ const itemSchema = new Schema(
     price: { type: Number, required: false },
     url: { type: String, required: false },
     //datePosted: { type: Date, default: Date.now },
-    jornal: [String],
+    jornal: [{ jornalEntry: String }],
+    username: String,
   },
   { timestamps: true }
 );

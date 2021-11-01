@@ -31,12 +31,13 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-
-    <link rel="stylesheet" href="/style.css" />
-    <title>fashion Jornal</title>
+    <!-- <script src="/app.js"></script> -->
+    <link rel="stylesheet" href="/style2.css" />
+    <title>Fashion Jornal</title>
   </head>
   <body>
     <header>
+      <img src="https://i.imgur.com/juJp3g5.png" alt="" />
       <i class="fas fa-bars"></i>
     </header>
     <nav class="navigation menu">
@@ -45,15 +46,34 @@
           <a href="user/signup">Create an account</a>
         </li>
         <li>
-          <a href="user/logout">Logout</a>
+          <a href="user/login">Login</a>
         </li>
-        <li><a href="/entry">Entries</a></li>
+        <li><a href="/entry">view entries</a></li>
       </ul>
       <button class="close">close</button>
     </nav>
 
-    <main class="layout">{% block content %} content {% endblock %}</main>
+    <main class="layout">
+      <h2>Welcome to Fashion Entries</h2>
+      <h3>Login or Signup to get started</h3>
+      <p>
+        This is an application to keep track of your fashion needs and want
+        while also add entries(notes) about the item.
+      </p>
+    </main>
     <footer>
+      <div class="nav">
+        <h3>Navigation</h3>
+        <ul>
+          <li>
+            <a href="user/signup">Create an account</a>
+          </li>
+          <li>
+            <a href="user/login">Login</a>
+          </li>
+          <li><a href="/entry">view entries</a></li>
+        </ul>
+      </div>
       <div class="nav">
         <h3>Bulit with</h3>
         <ul>

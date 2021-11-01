@@ -8,8 +8,13 @@ const router = express.Router();
 ///////////////////
 // router middlware
 //////////////
-
-///code goes here
+router.use((req, res, next) => {
+  if (req.session.loggedIn) {
+    next();
+  } else {
+    res.redirect("/user/login");
+  }
+});
 //////
 
 router.get("/seed", (req, res) => {
@@ -18,7 +23,7 @@ router.get("/seed", (req, res) => {
       name: "Dorothee Biss Blend Knith heart cutout top",
       img:
         "https://i.pinimg.com/564x/e8/60/80/e860803feadd7177972354e865520529.jpg",
-      type: "top",
+      type: "389",
       description: "Heart cutout knit top",
       price: 389,
       url:
@@ -29,7 +34,7 @@ router.get("/seed", (req, res) => {
       name: "Lapped Baby",
       img:
         "https://i.pinimg.com/564x/29/27/99/292799e812ba02de2448b3100d7017d1.jpg",
-      type: "TOP",
+      type: "top",
       description: "Lapped Baby spray paint-effect T-shirt",
       price: 300,
       url:
@@ -59,7 +64,8 @@ router.get("/seed", (req, res) => {
 //routes
 //index
 router.get("/", (req, res) => {
-  Item.find({})
+  // const username = req.session.username;
+  Item.find({ username: req.session.username })
     .then((items) => {
       res.render("item/index.liquid", { items });
     })
@@ -73,6 +79,7 @@ router.get("/new", (req, res) => {
 });
 //create route
 router.post("/", (req, res) => {
+  req.body.username = req.session.username;
   Item.create(req.body)
     .then((item) => {
       res.redirect("/entry");
@@ -115,27 +122,33 @@ router.delete("/:id", (req, res) => {
     });
 });
 //jornal route
-router.get("/:id/jornal", (req, res) => {
-  const id = req.params.id;
-  Item.findById(id)
-    .then((item) => {
-      res.render("item/entry.liquid", { item });
-    })
-    .catch((error) => {
-      res.json(error);
-    });
-});
-router.put("/:id", (req, res) => {
-  const id = req.params.id;
+// router.get("/:id/jornal", (req, res) => {
+//   const id = req.params.id;
+//   Item.findById(id)
+//     .then((item) => {
+//       res.render("item/entry.liquid");
+//     })
+//     .catch((error) => {
+//       res.json(error);
+//     });
+// });
+// router.put("/:id", (req, res) => {
+//   const id = req.params.id;
 
-  Item.findByIdAndUpdate(id, { $push: { jornal: req.body } }, { new: true })
-    .then((item) => {
-      res.redirect("/:id");
-    })
-    .catch((error) => {
-      res.json(error);
-    });
-});
+//   Item.findByIdAndUpdate(
+//     { _id: id },
+//     { $push: { jornal: req.body } },
+//     { upset: true },
+
+//   )
+
+//     .then((item) => {
+//       res.redirect("/:id");
+//     })
+//     .catch((error) => {
+//       res.json(error);
+//     });
+// });
 //index route
 router.get("/:id", (req, res) => {
   const id = req.params.id;

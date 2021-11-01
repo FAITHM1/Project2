@@ -4,7 +4,7 @@
 
 ## Project Summary
 
-This is a fashion jornal app. That allows the users to write and share a pieces of clothing items that they would like to have.
+This is a fashion journal app. That allows the users to write and share a pieces of clothing items that they would like to have.
 
 ## Models
 
@@ -31,7 +31,29 @@ as a user I want to be able to have an option to click on a button and be able t
 
 ## Challenges
 
-- comming soon
+-I the user to be able to add an comment to the item they are on and the comment gets pushed into a an array.
+
+```router.get("/:id/jornal", (req, res) => {
+  const id = req.params.id;
+  Item.findById(id)
+    .then((item) => {
+      res.render("item/entry.liquid", { item });
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
+router.put("/:id", (req, res) => {
+  const id = req.params.id;
+  Item.findByIdAndUpdate(id, { $push: { jornal: req.body } }, { new: true })
+    .then((item) => {
+      res.redirect("/:id");
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+});
+```
 
 ## List of Technologies
 
@@ -45,4 +67,3 @@ as a user I want to be able to have an option to click on a button and be able t
 
 - add authorization and authentication to my app(would have to create a second model)
 - be able to see the users username
-- user should be able to have the option of displaying their item on a public page or on their page.

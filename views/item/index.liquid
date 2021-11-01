@@ -1,10 +1,12 @@
 {% layout "layout.liquid"%} {% block content %}
+
 <div class="add">
   <a href="/entry/new">Add item</a>
 </div>
 
 <div class="items">
   {% for item in items %}
+
   <div class="item">
     <img src="{{ item.img }}" alt="{{ item.name }}" />
     <div class="text">

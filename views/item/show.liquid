@@ -1,10 +1,13 @@
 {% layout "layout.liquid"%} {% block content %}
 <a href="/entry"><button class="show-button">Home</button></a>
+{%- comment -%}
 <a href="/entry/{{ item._id }}/jornal"
   ><button class="show-button">add entry</button></a
 >
+{%- endcomment-%}
 <article>
   <img src="{{ item.img }}" alt="{{ item.name }}" />
+  <h4>posted by: {{ item.username }}</h4>
   <h2>{{ item.name }}</h2>
   <h3>${{ item.price }}</h3>
   <h4>Item type:{{ item.type | upcase }}</h4>
