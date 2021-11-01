@@ -24,6 +24,11 @@ List your routes in a table
 | /entry/:id/edit | get    | renders a form to edit the entry that matches the id(edit) |
 | /patterns/:id   | put    | updates the entry that matches the id(update)              |
 | /entry/:id      | delete | deletes an entry that matches the id(delete)               |
+| /               | get    | INDEX                                                      |
+| /user/signup    | get    | renders signup                                             |
+| /signup         | post   | creates user                                               |
+| /user/login     | get    | renders login                                              |
+| /login          | post   | lets user login                                            |
 
 ## User Stories
 
