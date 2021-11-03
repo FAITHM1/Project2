@@ -85,3 +85,11 @@ footer a {
 footer .nav {
   width: 30%;
 }
+.imgCard {
+  display: flex;
+  justify-content: space-around;
+}
+.imgCard img {
+  width: 30%;
+  height: auto;
+}
