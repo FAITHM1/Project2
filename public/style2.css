@@ -90,6 +90,8 @@ footer .nav {
   justify-content: space-around;
 }
 .imgCard img {
-  width: 30%;
+  width: 35%;
   height: auto;
+
+  border: 2px solid var(--dark-background);
 }
